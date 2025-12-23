@@ -12,23 +12,20 @@ export const metadata: Metadata = {
   title: "Masjid Al-Hikmah - Beranda",
   description:
     "Selamat datang di Masjid Al-Hikmah. Jadwal salat, program kegiatan, dan layanan komunitas Muslim",
-  generator: "v0.app",
   icons: {
-    icon: [
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Logo Masjid Al-Hikmah",
       },
     ],
-    apple: "/apple-icon.png",
   },
   viewport: {
     width: "device-width",
