@@ -230,7 +230,11 @@ Lihat file `LICENSE` untuk detail lebih lanjut.
 
 ## 👨‍💼 Tim Pengembang
 
-[Daftar anggota kelompok dan pembagian tugas dapat ditambahkan di sini]
+• **Anggota 1**: Brucad Al Magribi
+
+• **Anggota 2**: Edwin Fadhilah Putra
+
+• **Anggota 3**: Aditya Bagus
 
 ---
 
