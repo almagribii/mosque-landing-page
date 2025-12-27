@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { ChevronDown, Clock } from "lucide-react"
+import { useEffect, useState } from "react";
+import { ChevronDown, Clock } from "lucide-react";
 
 export default function HeroHome() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const prayerTimes = [
     { name: "Subuh", time: "05:30" },
@@ -16,7 +16,7 @@ export default function HeroHome() {
     { name: "Asar", time: "15:45" },
     { name: "Maghrib", time: "18:30" },
     { name: "Isya", time: "20:00" },
-  ]
+  ];
 
   return (
     <div className="relative w-full h-screen min-h-[600px] bg-gradient-to-b from-primary/10 to-background overflow-hidden pt-20">
@@ -37,31 +37,35 @@ export default function HeroHome() {
             Masjid <span className="text-primary">Al-Hikmah</span>
           </h1>
           <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Sebuah rumah ibadah yang menyambut semua dengan kehangatan, kasih sayang, dan komitmen untuk mendekatkan
-            diri kepada Allah
+            Sebuah rumah ibadah yang menyambut semua dengan kehangatan, kasih
+            sayang, dan komitmen untuk mendekatkan diri kepada Allah
           </p>
         </div>
 
         {/* Prayer Times Card */}
         <div
-          className={`bg-card backdrop-blur-md border border-border rounded-2xl p-8 shadow-lg mb-12 transform transition-all duration-1000 delay-300 ${
+          className={`bg-card backdrop-blur-md border border-border rounded-2xl p-4 sm:p-8 shadow-lg mb-12 transform transition-all duration-1000 delay-300 max-w-4xl mx-auto ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-          <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center justify-center gap-2">
-            <Clock className="w-6 h-6 text-primary" />
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 flex items-center justify-center gap-2">
+            <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             Jadwal Salat Hari Ini
           </h2>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             {prayerTimes.map((prayer, index) => (
               <div
                 key={prayer.name}
-                className={`text-center p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors transform delay-${index * 100} ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
+                className={`text-center p-3 sm:p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors transform delay-${
+                  index * 100
+                } ${isVisible ? "opacity-100" : "opacity-0"}`}
               >
-                <p className="font-semibold text-foreground">{prayer.name}</p>
-                <p className="text-2xl font-bold text-primary mt-2">{prayer.time}</p>
+                <p className="font-semibold text-foreground text-sm sm:text-base">
+                  {prayer.name}
+                </p>
+                <p className="text-xl sm:text-2xl font-bold text-primary mt-1 sm:mt-2">
+                  {prayer.time}
+                </p>
               </div>
             ))}
           </div>
@@ -92,5 +96,5 @@ export default function HeroHome() {
         <ChevronDown className="w-6 h-6 text-primary" />
       </div>
     </div>
-  )
+  );
 }
