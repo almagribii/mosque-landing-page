@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Sparkles } from "lucide-react"
+import { useEffect, useState } from "react";
+import { Sparkles } from "lucide-react";
 
 export default function ProgramsHero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <div className="relative w-full min-h-[500px] bg-gradient-to-br from-accent/20 via-background to-primary/10 pt-32 pb-20">
@@ -24,20 +24,24 @@ export default function ProgramsHero() {
           }`}
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-accent" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
             </div>
-            <span className="text-accent font-semibold">Program & Layanan</span>
+            <span className="text-accent font-semibold text-sm sm:text-base">
+              Program & Layanan
+            </span>
           </div>
           <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Layanan Terpadu Untuk <span className="text-accent">Semua Kebutuhan Spiritual</span>
+            Layanan Terpadu Untuk{" "}
+            <span className="text-accent">Semua Kebutuhan Spiritual</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-            Kami menyediakan berbagai program dan layanan komprehensif untuk mendukung perjalanan spiritual Anda dan
-            keluarga dengan fasilitas modern dan tenaga profesional
+            Kami menyediakan berbagai program dan layanan komprehensif untuk
+            mendukung perjalanan spiritual Anda dan keluarga dengan fasilitas
+            modern dan tenaga profesional
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
