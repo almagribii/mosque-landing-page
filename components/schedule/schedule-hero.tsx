@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Calendar, ArrowRight } from "lucide-react"
+import { useEffect, useState } from "react";
+import { Calendar, ArrowRight } from "lucide-react";
 
 export default function ScheduleHero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   return (
     <div className="relative w-full min-h-[500px] bg-gradient-to-br from-primary/20 via-background to-accent/10 pt-32 pb-20">
@@ -27,17 +27,21 @@ export default function ScheduleHero() {
           {/* Left Content */}
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Calendar className="w-6 h-6 text-primary" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <span className="text-primary font-semibold">Jadwal Kegiatan</span>
+              <span className="text-primary font-semibold text-sm sm:text-base">
+                Jadwal Kegiatan
+              </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Rencana Kegiatan <span className="text-primary">Mingguan & Bulanan</span>
+              Rencana Kegiatan{" "}
+              <span className="text-primary">Mingguan & Bulanan</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-              Ikuti berbagai acara religius, pendidikan, dan sosial yang kami selenggarakan setiap minggu untuk
-              memperkuat silaturahmi dan pemahaman Islam
+              Ikuti berbagai acara religius, pendidikan, dan sosial yang kami
+              selenggarakan setiap minggu untuk memperkuat silaturahmi dan
+              pemahaman Islam
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -56,16 +60,24 @@ export default function ScheduleHero() {
             <div className="relative w-full h-full flex items-center justify-center">
               <div className="grid grid-cols-2 gap-4 w-full">
                 <div className="bg-card border border-border rounded-lg p-6 text-center hover:shadow-lg transition-all">
-                  <div className="text-4xl font-bold text-primary mb-2">48+</div>
-                  <p className="text-sm text-muted-foreground">Acara per Tahun</p>
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    48+
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Acara per Tahun
+                  </p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 text-center hover:shadow-lg transition-all">
                   <div className="text-4xl font-bold text-accent mb-2">12</div>
                   <p className="text-sm text-muted-foreground">Program Utama</p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 text-center hover:shadow-lg transition-all col-span-2">
-                  <div className="text-4xl font-bold text-primary mb-2">1000+</div>
-                  <p className="text-sm text-muted-foreground">Peserta Setiap Bulan</p>
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    1000+
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Peserta Setiap Bulan
+                  </p>
                 </div>
               </div>
             </div>
@@ -73,5 +85,5 @@ export default function ScheduleHero() {
         </div>
       </div>
     </div>
-  )
+  );
 }

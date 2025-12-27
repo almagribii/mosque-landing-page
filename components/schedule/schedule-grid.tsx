@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Clock, MapPin, Users, ArrowRight } from "lucide-react"
+import { useEffect, useState } from "react";
+import { Clock, MapPin, Users, ArrowRight } from "lucide-react";
 
 export default function ScheduleGrid() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true)
-    })
-    const element = document.getElementById("schedule-grid")
-    if (element) observer.observe(element)
-    return () => observer.disconnect()
-  }, [])
+      if (entry.isIntersecting) setIsVisible(true);
+    });
+    const element = document.getElementById("schedule-grid");
+    if (element) observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const activities = [
     {
@@ -23,7 +23,8 @@ export default function ScheduleGrid() {
       time: "05:30 - 06:30",
       location: "Ruang Utama Masjid",
       participants: "150-200 orang",
-      description: "Pengajian rutin sebelum salat subuh dengan ustaz berpengalaman",
+      description:
+        "Pengajian rutin sebelum salat subuh dengan ustaz berpengalaman",
       color: "from-blue-500 to-blue-600",
       image: "/islamic-morning-study-circle.jpg",
     },
@@ -34,7 +35,8 @@ export default function ScheduleGrid() {
       time: "14:00 - 16:00",
       location: "Ruang Belajar 1",
       participants: "50-80 orang",
-      description: "Program menghafal Quran untuk anak-anak dan dewasa dengan metode modern",
+      description:
+        "Program menghafal Quran untuk anak-anak dan dewasa dengan metode modern",
       color: "from-green-500 to-green-600",
       image: "/quran-memorization-class.jpg",
     },
@@ -45,7 +47,8 @@ export default function ScheduleGrid() {
       time: "19:30 - 21:00",
       location: "Aula Masjid",
       participants: "200-300 orang",
-      description: "Pembahasan masalah fiqih kontemporer yang relevan dengan kehidupan sehari-hari",
+      description:
+        "Pembahasan masalah fiqih kontemporer yang relevan dengan kehidupan sehari-hari",
       color: "from-purple-500 to-purple-600",
       image: "/islamic-jurisprudence-lecture.jpg",
     },
@@ -56,7 +59,8 @@ export default function ScheduleGrid() {
       time: "11:00 - 13:00",
       location: "Lapangan Utama",
       participants: "500+ orang",
-      description: "Shalat Jum'at dengan khutbah bermakna dan pembagian katering gratis",
+      description:
+        "Shalat Jum'at dengan khutbah bermakna dan pembagian katering gratis",
       color: "from-red-500 to-red-600",
       image: "/friday-prayer-congregation.jpg",
     },
@@ -67,7 +71,8 @@ export default function ScheduleGrid() {
       time: "15:00 - 17:00",
       location: "Ruang Remaja",
       participants: "40-60 orang",
-      description: "Bimbingan dakwah dan pengembangan karakter untuk generasi muda Muslim",
+      description:
+        "Bimbingan dakwah dan pengembangan karakter untuk generasi muda Muslim",
       color: "from-yellow-500 to-yellow-600",
       image: "/youth-mentoring-program.jpg",
     },
@@ -78,18 +83,22 @@ export default function ScheduleGrid() {
       time: "17:00 - 20:00",
       location: "Halaman Masjid",
       participants: "300-400 orang",
-      description: "Acara berkumpul keluarga besar jamaah dengan berbagai aktivitas kebersamaan",
+      description:
+        "Acara berkumpul keluarga besar jamaah dengan berbagai aktivitas kebersamaan",
       color: "from-pink-500 to-pink-600",
       image: "/family-gathering-event.jpg",
     },
-  ]
+  ];
 
   return (
     <section id="schedule-grid" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-foreground mb-4">Program Kegiatan Kami</h2>
+        <h2 className="text-4xl font-bold text-center text-foreground mb-4">
+          Program Kegiatan Kami
+        </h2>
         <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-          Berbagai program menarik dan bermanfaat untuk pengembangan spiritual dan sosial
+          Berbagai program menarik dan bermanfaat untuk pengembangan spiritual
+          dan sosial
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -97,14 +106,16 @@ export default function ScheduleGrid() {
             <div
               key={activity.id}
               className={`group bg-card border border-border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 transform ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
               style={{
                 transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
               }}
             >
               {/* Image */}
-              <div className="relative h-48 bg-gradient-to-br from-muted to-muted/50 overflow-hidden">
+              <div className="relative h-40 sm:h-48 bg-gradient-to-br from-muted to-muted/50 overflow-hidden">
                 <img
                   src={activity.image || "/placeholder.svg"}
                   alt={activity.title}
@@ -116,8 +127,8 @@ export default function ScheduleGrid() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">
                   {activity.title}
                 </h3>
 
@@ -125,7 +136,9 @@ export default function ScheduleGrid() {
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Clock className="w-4 h-4 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-foreground">{activity.day}</div>
+                      <div className="font-semibold text-foreground">
+                        {activity.day}
+                      </div>
                       <div>{activity.time}</div>
                     </div>
                   </div>
@@ -141,7 +154,9 @@ export default function ScheduleGrid() {
                   </div>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{activity.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {activity.description}
+                </p>
 
                 <a
                   href="#"
@@ -156,5 +171,5 @@ export default function ScheduleGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
