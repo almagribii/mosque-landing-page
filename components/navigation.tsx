@@ -36,12 +36,14 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-linear-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-linear-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-base sm:text-lg">
                 🕌
               </span>
             </div>
-            <span className="font-bold text-primary">Masjid Al-Hikmah</span>
+            <span className="font-bold text-primary text-sm sm:text-base">
+              Masjid Al-Hikmah
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -54,15 +56,14 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
                 {item.label}
               </Link>
             ))}
-            
-              <button
-                onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
-                aria-label="Toggle theme"
-              >
-                {isDark ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-          
+
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
           <button
@@ -86,18 +87,17 @@ export default function Navigation({ isScrolled = false }: NavigationProps) {
                   {item.label}
                 </Link>
               ))}
-              
-                <button
-                  onClick={() => {
-                    setTheme(isDark ? "light" : "dark");
-                    setIsOpen(false);
-                  }}
-                  className="px-4 py-3 flex items-center gap-2 text-foreground hover:bg-muted rounded-lg transition-colors"
-                >
-                  {isDark ? <Sun size={20} /> : <Moon size={20} />}
-                  <span>{isDark ? "Light Mode" : "Dark Mode"}</span>
-                </button>
 
+              <button
+                onClick={() => {
+                  setTheme(isDark ? "light" : "dark");
+                  setIsOpen(false);
+                }}
+                className="px-4 py-3 flex items-center gap-2 text-foreground hover:bg-muted rounded-lg transition-colors"
+              >
+                {isDark ? <Sun size={20} /> : <Moon size={20} />}
+                <span>{isDark ? "Light Mode" : "Dark Mode"}</span>
+              </button>
             </div>
           </div>
         )}
