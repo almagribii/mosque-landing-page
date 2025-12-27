@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { MessageCircle, Phone, MapPin, Clock } from "lucide-react"
+import { useEffect, useState } from "react";
+import { MessageCircle, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactHero() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const contactMethods = [
     {
@@ -35,7 +35,7 @@ export default function ContactHero() {
       value: "Buka 24 Jam",
       color: "from-blue-500 to-blue-600",
     },
-  ]
+  ];
 
   return (
     <div className="relative w-full min-h-[500px] bg-gradient-to-br from-primary/10 via-background to-accent/5 pt-32 pb-20">
@@ -54,36 +54,42 @@ export default function ContactHero() {
             Hubungi <span className="text-primary">Kami</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Kami siap menjawab pertanyaan Anda dan mendengarkan masukan. Hubungi kami melalui berbagai saluran
-            komunikasi yang tersedia
+            Kami siap menjawab pertanyaan Anda dan mendengarkan masukan. Hubungi
+            kami melalui berbagai saluran komunikasi yang tersedia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {contactMethods.map((method, index) => {
-            const Icon = method.icon
+            const Icon = method.icon;
             return (
               <div
                 key={method.title}
-                className={`bg-card border border-border rounded-xl p-6 text-center hover:shadow-lg transition-all duration-500 transform ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                className={`bg-card border border-border rounded-xl p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-500 transform ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{
                   transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
                 }}
               >
                 <div
-                  className={`w-12 h-12 rounded-lg bg-gradient-to-br ${method.color} flex items-center justify-center mx-auto mb-4`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${method.color} flex items-center justify-center mx-auto mb-3 sm:mb-4`}
                 >
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{method.title}</h3>
-                <p className="text-muted-foreground text-sm">{method.value}</p>
+                <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">
+                  {method.title}
+                </h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">
+                  {method.value}
+                </p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
+  );
 }
